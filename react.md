@@ -143,3 +143,40 @@ ReactDOM.render(<App />, document.getElementById('root'))
 If you back to `localhost:3000`, you'll see "Hello, react!" just like before. We have the beginnings of a React app now.
 
 ### React Developer Tools
+#### There is an extension called 'React Developer Tools' that will make your life much easier when working with React! Download [React DevTools for Chrome][dev-link] , or whatever browser you prefer to work on.
+
+[dev-link]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi "Go link"
+
+## Now we have all the tools and setup we need to actually begin working with React!!
+
+### JSX: JavaScript + XML
+- JS that looks like HTML in our React code, but it's not quite HTML.
+- With JSX, we can create and use our own XML-like tags.
+
+**JSX**
+```
+const heading = <h1 className="site-heading">Hello, React</h1>
+```
+
+- Using JSX is not mandatory for writing React.
+- it's running `createElement` - and renders the same info(tag) 
+**same output as the JSX above**
+
+```
+const heading = React.createElement('h1', {className: 'site-heading' }, 'Hello, React!')
+```
+
+- JSX is actually closer to JS **not HTML** 
+    1. `className` is used instead of `class`
+    2. Properties and methods in JSX are camelCase - `onClick` like JS
+    3. **Self-closing** tags must end in a slash - e.g. <img **/>**
+    4. JS expressions can also embedded inside JSX! using curly braces, including variables,
+    functions, and properties
+        ```
+        const name = 'Tania'
+        const heading = <h1>Hello,{name}</h1>
+        ```
+        -> {name} <<<<<< **here!!!**
+    5.  JSX is easier to write and understand than creating and appending many elements in vanilla JS, and is one of the reasons people love React so much!!
+    
+### Components
