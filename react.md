@@ -142,3 +142,4 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 If you back to `localhost:3000`, you'll see "Hello, react!" just like before. We have the beginnings of a React app now.
 
+### React Developer Tools
