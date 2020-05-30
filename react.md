@@ -1,6 +1,7 @@
 # 1. Getting Started with React - An Overview and Walkthrough Tutorial
 *walkthrough : 연습*<br><br>
 written by **Tania Rascia** , **<https://www.taniarascia.com/getting-started-with-react/>**
+> Thank you Tania Rascia!!
 
 > I saw what looked like *a bunch of HTML mixed* with JavaScript and thought, isn't this what we've been trying to avoid? *What's the big deal with React?*
 
