@@ -90,7 +90,6 @@ If you've never used JS or the DOM at all before, see below before trying to tac
  
  [cra-link]: https://github.com/facebook/create-react-app "Go CRA LINK!"
  as environment that comes preconfigured with everything you need to build a React app. <br>
- It will create a live development server, use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files, and use [ESLint][ESLink]
+ It will create a live development server, use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files, and use [ESLint][ESLink] to test and warn about mistakes in the code.
  
  [ESLink]: https://eslint.org/ "GO ESLint"
- to test and warn about mistakes in the code.
