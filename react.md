@@ -40,3 +40,57 @@ If you've never used JS or the DOM at all before, see below before trying to tac
  #### 1. Static HTML file
  1. not a popular way but it will be familiar and easy to understand if you've ever used a library like jQuery
  2. load in three CDNs in the `head` - React, React DOM, and Babel.
+ 3. finally we'll create a `script` tag where your custom code will live.
+ 
+ **index.html**
+ ```(.javascript)
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <meta charset="utf-8" />
+         <title> Hello React!!!</title>
+         
+         <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+         <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+         <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    
+     </head>
+     <body>
+     
+         <div id="root"></diiv>
+         
+         <script type="text/babel">
+             // React code will go there
+         </script>
+     </body>
+ </html>
+ ```
+ <br><br>
+ 
+ ```
+ class App extends React.Component {
+     render() {
+         return (
+             <h1>Hello world!</h1>
+         );
+     }
+ }
+ 
+ ReactDOM.render(<App />, document.getElementById('root'))
+ ```
+ 
+ 1. use ES6 classes to create a React component called `App`.
+ 2. add the `render()` method, *the only required method* in a class component, whice is used to render *DOM nodes* .
+ 3. Inside the `return`, Note that we're *not* returning a string here, so don't use quotes(따옴표 쓰기 ㄴㄴ!) around the element. **This is called** `JSX`
+ 4. Finally use the ReactDOM `render()` method to render the `App` class we created -> into `root`
+ 
+ # 2. Create React App !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ The metohd I just used of loading JS libraries into a static HTML(as above) - is not very efficient, and is hard to maintain.
+ > Fortunately, **Facebook has created** [Create React App][cra-link]
+ 
+ [cra-link]: https://github.com/facebook/create-react-app "Go CRA LINK!"
+ as environment that comes preconfigured with everything you need to build a React app. <br>
+ It will create a live development server, use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files, and use [ESLint][ESLink]
+ 
+ [ESLink]: https://eslint.org/ "GO ESLint"
+ to test and warn about mistakes in the code.
