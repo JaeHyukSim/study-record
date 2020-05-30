@@ -93,3 +93,51 @@ If you've never used JS or the DOM at all before, see below before trying to tac
  It will create a live development server, use Webpack to automatically compile React, JSX, and ES6, auto-prefix CSS files, and use [ESLint][ESLink] to test and warn about mistakes in the code.
  
  [ESLink]: https://eslint.org/ "GO ESLint"
+
+To set up `create-react-app`, run the following code in your terminal, one directory up from where you want the project to live.
+```
+npx create-react-app react-tutorial
+```
+Once that finished installing, move to the newly created directory and start the project.
+```
+cd react-tutorial
+npm start
+```
+Once you run this command, a new window will popup at `localhost:3000` with your new React app.
+
+>#### Create React App is very good for getting started for beginners as well as large-scale enterprise applications, but it's not perfect for every workflow. You can also create your own Webpack setup for React.
+
+If you look into project structure, you'll see a `/public` and `/src` directory, along with the regular `node_modules`, `.gitignore`, `README.md`, and `package.json`
+
+1. In `/public`, our important file is `index.html`, which is very similar to the static `index.html` file we made earlier - just a `root` div. This time, no libraries or scripts are being loaded in. The `/src` **directory will contain all our React code** <br>
+To see how the environment automatically compiles and updates your React code, find the line that looks like this in /src/App.js.
+```
+To get started, edit [src/App.js] and save to reload.
+```
+And replace it with other text. Once you save the file, you'll notice `localhost:3000` compiles and refreshes with the new data.
+
+**src/index.js**
+```
+import React from 'react'
+import ReactDOMM from 'react-dom'
+import './index.css'
+```
+
+**src/index.js**
+creating our `App` component again.
+```
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <h1>Hello, react!</h1>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+If you back to `localhost:3000`, you'll see "Hello, react!" just like before. We have the beginnings of a React app now.
+
