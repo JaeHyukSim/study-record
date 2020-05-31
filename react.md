@@ -180,3 +180,164 @@ const heading = React.createElement('h1', {className: 'site-heading' }, 'Hello, 
     5.  JSX is easier to write and understand than creating and appending many elements in vanilla JS, and is one of the reasons people love React so much!!
     
 ### Components
+- *so far : (제한된)어느 정도까지만*
+- Almost everything in React consists of components, which can be class components or simple components
+- We'll create **a new** file called `App.js` and put the component in there!!!!!!.
+- It's really *WHAT I WANT!!**
+
+- **src/index.js**
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import './index.css'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+- **src/App.js**
+```
+import React, { Component } from 'react'
+
+class App extends Compoenent {
+    render() {
+        return (
+            <div className="App>
+                <h1>Hello, React!</h1>
+            </div>
+        )
+    }
+}
+
+export default App
+```
+- **We export the compoenent as `App` and load it in 'index.js'**
+
+### Class Components
+- Let's create another component. `Table.js` and fill it with the following data.
+- **src/Table.js**
+```
+import React, { Component } from 'react'
+
+class Table extends Component {
+    render() {
+        return (
+            <table>
+                <thread>
+                    <tr>
+                        <th>Name</th>
+                        <th>Job</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Charlie</td>
+                        <td>Janitor</td>
+                    </tr>
+                    <tr>
+                        <td>Mac</td>
+                        <td>Bouncer</td>
+                    </tr>
+                    <tr>
+                        <td>Dee</td>
+                        <td>Aspiring actress</td>
+                    </tr>
+                    <tr>
+                        <td>Dennis</td>
+                        <td>Bartender</td>
+                    </tr>
+                </tbody>
+            </table>
+        )
+    }
+}
+
+export default Table
+```
+- **src/App.js**
+
+```
+import Table from './Table'
+```
+
+- **src/App.js**
+```
+import React, { Component } from 'react'
+import Table from './Table'
+
+class App extends Component {
+    render() {
+        return (
+            <div className="container">
+                <Table />
+            </div>
+        )
+    }
+}
+
+export default App
+```
+
+### Simple Components
+- function
+-doesn't use the `class` keyword
+- make two simple components for it - a table header, and a table body
+- **src/Table.js**
+```
+const TableHeader = () => {
+    return (
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job</th>
+            </tr>
+        </thead>
+    )
+}
+```
+- **src/Table.js**
+```
+const TableBody = () => {
+    return (
+        <tbody>
+            <tr>
+                <td>Charlie</td>
+                <td>Janitor</td>
+            </tr>
+            <tr>
+                <td>Mac</td>
+                <td>Bouncer</td>
+            </tr>
+            <tr>
+                <td>Dee</td>
+                <td>Aspiring actress</td>
+            </tr>
+            <tr>
+                <td>Dennis</td>
+                <td>Bartender</td>
+            </tr>
+        </tbody>
+    )
+}
+```
+
+- **src/Table.js**
+
+```
+const TableHeader = () => { ... }
+const TableBody = () => { ... }
+
+class Table extends Component {
+    render() {
+        return (
+            <table>
+                <TableHeader />
+                <TableBody />
+            </table>
+        )
+    }
+}
+```
+- **A class component must include `render()`, and the `return` can only return one parent element.**
+
+### Props
