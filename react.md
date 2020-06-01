@@ -341,3 +341,110 @@ class Table extends Component {
 - **A class component must include `render()`, and the `return` can only return one parent element.**
 
 ### Props
+- **One of the big deals about React is how it handles data, and it does so with properties, referred to as props, and with state. Now, we'll focus on handling data with props.**
+- Let's move all that data to an array of objects, as if we were bringing in a JSON-based API.
+```
+class App extends Component {
+    render() {
+        const characters = [
+            {
+                name: 'Charlie',
+                job: 'Janitor'
+            },
+            {
+                name: 'Mac',
+                job: 'Bouncer',
+            },
+            {
+                name: 'Dee',
+                job: 'Aspring actress',
+            },
+            {
+                name: 'Dennis',
+                job: 'Bartender',
+            },
+        ]
+        
+        return (
+            <div className="container">
+                <Table />
+            </div>
+        )
+    }
+}
+```
+- Now, we're going to pass the data **through to the child component** `Table` with properties, kind of how you might pass data through using `data-` attributes.
+- We can call the property whatever we want, as long as it's not a reserved keyword, so I'll go with `characterData` !!
+- **src / App.js**
+```
+return (
+    <div className="container">
+        <Table characterData={characters} />
+    </div>
+)
+```
+- Now that data is being passed through to `Table` - we have to work on accessing it from the other side.
+- **src / Table.js**
+```
+class Table extends Component {
+    render() {
+        const { characterData } = this.props
+        
+        return (
+            <table>
+                <TableHeader />
+                <TableBody characterData={characterData} />
+            </table>
+        )
+    }
+}
+```
+- If you open up React DevTools and inspect the `Table` component, you'll see the array of data in the property.
+- The data that's stored here is known as the virtual DOM, which is a fast and efficient way of syncing data with the actual DOM.
+- Props are an effective way to pass existing data to a React component, however the component cannot change the props - they're read-only.
+
+### State
+- With props, we have a one way data flow, but with state we can update private data from a component.
+- You can think of state as any data that should be saved and modified without **necessarily being added to a database**
+- adding and removing items from a shopping cart before confirming your purchase.
+
+- To start, we're going to create a `state` object.
+- **src / App.js**
+```
+class App extends Component {
+    state = [
+            {
+                name: 'Charlie',
+                job: 'Janitor'
+            },
+            {
+                name: 'Mac',
+                job: 'Bouncer',
+            },
+            {
+                name: 'Dee',
+                job: 'Aspring actress',
+            },
+            {
+                name: 'Dennis',
+                job: 'Bartender',
+            },
+        ]
+}
+```
+- **You must use** `this.setState()` **to modify an array. Simply applying a new value to** 'this.state.property' **will not work.**
+- **src / App.js**
+```
+removeCharacter = index =>{
+    const { characters } = this.state
+    
+    this.setState({
+        characters: characters.filter((character, i) =>{
+            return i !== index
+        }),
+    }),
+}
+```
+- **The `onClick` function must pass through a function that returns the `removeCharacter()` method, otherwise it will try to run automatically.**
+
+### Submitting Form Data
