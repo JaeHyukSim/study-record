@@ -448,3 +448,30 @@ removeCharacter = index =>{
 - **The `onClick` function must pass through a function that returns the `removeCharacter()` method, otherwise it will try to run automatically.**
 
 ### Submitting Form Data
+- **Previously, it was necessary to include a `constructor()` on React class components, but it's not required anymore.**
+- **src / Form.js**
+```
+import React, { Component } from 'react'
+
+class Form extends Component {
+    initialState = {
+        name: '',
+        job: '',
+    }
+    
+    state = this.initialState
+}
+```
+
+- **src / Form.js**
+```
+handleChange = event => {
+    const { name, value } = event.target
+    
+    this.setState({
+        [name]: value,
+    })
+}
+```
+
+### Pulling in API Data
