@@ -475,3 +475,11 @@ handleChange = event => {
 ```
 
 ### Pulling in API Data
+- Lyfecycle is the order in which methods are called in React.
+- Mounting refers to an item being inserted into the DOM.
+
+### Building and Deploying a React App
+- Now, if you just want to compile all the React code and place it in the root of a directory somewhere, all you need to do is run the following line
+```
+npm run build
+```
